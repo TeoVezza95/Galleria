@@ -1,7 +1,7 @@
 package it.uniroma3.galleria.model;
 
 
-import java.io.Serializable;
+
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;

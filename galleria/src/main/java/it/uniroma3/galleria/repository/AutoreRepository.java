@@ -7,7 +7,7 @@ import java.util.List;
 import org.springframework.data.repository.CrudRepository;
 
 import it.uniroma3.galleria.model.Autore;
-import it.uniroma3.galleria.model.Opera;
+
 
 
 public interface AutoreRepository extends CrudRepository<Autore, Long> {

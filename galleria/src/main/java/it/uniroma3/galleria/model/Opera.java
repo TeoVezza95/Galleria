@@ -1,9 +1,6 @@
 package it.uniroma3.galleria.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -11,31 +8,33 @@ import javax.validation.constraints.Size;
 @Entity
 public class Opera {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 
-    @NotNull
-    @Size(min=1)
-    private String nome;
+	@NotNull
+	@Size(min=1)
+	private String nome;
 
-    @NotNull
-    @Size(min=1)
-    private String descrizione;
+	@NotNull
+	@Size(min=1)
+	private String descrizione;
 
-    @NotNull
-    @Min(1)
-    private Integer anno;
+	@NotNull
+	@Min(1)
+	private Integer anno;
 
-    protected Opera() {}
-	
-	public Opera(String nome, String descrizione, Integer anno) {
-		this.nome = nome;
-		this.descrizione = descrizione;
-		this.anno = anno;
+	@NotNull
+	@ManyToOne
+	private Autore autore;
+
+	public Autore getAutore() {
+		return autore;
 	}
-	
-	
+
+	public void setAutore(Autore autore) {
+		this.autore = autore;
+	}
 
 	public Long getId() {
 		return id;
@@ -70,10 +69,10 @@ public class Opera {
 	}
 
 	@Override
-    public String toString() {
-        return String.format(
-                "Opera[id=%d, nome='%s', descrizione='%s', anno=%d]",
-                id, nome, descrizione, anno);
-    }
+	public String toString() {
+		return String.format(
+				"Opera[id=%d, nome='%s', descrizione='%s', anno=%d]",
+				id, nome, descrizione, anno);
+	}
 
 }

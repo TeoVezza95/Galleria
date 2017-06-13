@@ -5,15 +5,16 @@ import java.util.List;
 
 import javax.persistence.*;
 
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
+import javax.validation.constraints.Size;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 public class Autore {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
 	@NotNull
@@ -29,11 +30,12 @@ public class Autore {
 	private String nazionalita;
 
 	@NotNull
+	@Past
 	@Size(min=1)
 	@Temporal(TemporalType.DATE)
 	private Date annoNascita;
 
-	@NotNull
+	
 	@Size(min=1)
 	@Temporal(TemporalType.DATE)
 	private Date annoMorte;
@@ -41,19 +43,6 @@ public class Autore {
 	@NotNull
 	@OneToMany(mappedBy="autore", cascade=CascadeType.ALL)
 	private List<Opera> opere;
-	
-
-    protected Autore() {}
-	
-	public Autore(String nome, String cognome,String nazionalita, Date annoNascita, Date annoMorte) {
-		this.nome = nome;
-		this.cognome = cognome;
-		this.nazionalita = nazionalita;
-		this.annoNascita= annoNascita;
-		this.annoMorte = annoMorte;
-		
-	}
-	
 
 	public Long getId() {
 		return id;
@@ -91,20 +80,20 @@ public class Autore {
 	public void setAnnoMorte(Date annoMorte) {
 		this.annoMorte = annoMorte;
 	}
-	
-	
+
+
 	public List<Opera> getOpere() {
 		return opere;
 	}
-	public void setOpere(List<Opera> quadri) {
-		this.opere = quadri;
+	public void setOpere(List<Opera> opere) {
+		this.opere = opere;
 	}
-	
+
 	@Override
 	public String toString() {
 		return "Autore [id =" + id + ", nome =" + nome + ", cognome=" + cognome + ", nazionalita=" + nazionalita + 
 				", annoNascita =" + annoNascita + ", annoMorte ="  + annoMorte +"]";
 	}
-	
+
 
 }

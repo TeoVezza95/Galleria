@@ -16,7 +16,10 @@ public class OperaService {
     public Iterable<Opera> findAll() {
         return this.operaRepository.findAll();
     }
-
+    @Transactional
+	public void delete(Long id){
+		this.operaRepository.delete(id);
+	}
     @Transactional
     public void add(final Opera opera) {
         this.operaRepository.save(opera);
