@@ -23,45 +23,46 @@ import it.uniroma3.galleria.service.OperaService;
 public class OperaController  {
 	@Autowired
 	private AutoreService autoreService;
-    @Autowired
-    private OperaService operaService; 
+	@Autowired
+	private OperaService operaService; 
 
-    @GetMapping("/opera")
+	@GetMapping("/opera")
 	public String showForm(Model model, Opera opera){
 		List<Autore> autori = (List<Autore>) autoreService.findAll();
 		model.addAttribute("autori", autori);
-		return "formOpera";
+		return "opera/formOpera";
 	}
-    @GetMapping("/opere")
+	@GetMapping("/opere")
 	public String showAutori(Model model){
 		List<Opera> opere = (List<Opera>) operaService.findAll();
 		model.addAttribute("opere", opere);
-		return "opere";
-		}
+		return "opera/opere";
+	}
 
-    @GetMapping("opera/cancella")
-   	public ModelAndView deleteAutore(@RequestParam("id")long id, Model model){
-   		operaService.delete(id);
-   		return new ModelAndView("redirect:/opere");
-   	}
-    @GetMapping("/opera/resultsOpera")
-   	public String showAutore(@RequestParam("id")long id, Model model){
-   		Opera o = operaService.findbyId(id);
-   		model.addAttribute("opera", o);
-   		return "opera/resultsOpera";
-   	}
-    @PostMapping("/opera")
-    public String checkCustomerInfo(@Valid @ModelAttribute Opera opera, 
-    									BindingResult bindingResult, Model model) {
-    	
-        if (bindingResult.hasErrors()) {
-            return "formOpera";
-        }
-        else {
-        	model.addAttribute(opera);
-            operaService.add(opera); 
-        }
-        return "resultsOpera";
-    }
+	@GetMapping("opera/cancella")
+	public ModelAndView deleteAutore(@RequestParam("id")long id, Model model){
+		operaService.delete(id);
+		return new ModelAndView("redirect:/opere");
+	}
+	@GetMapping("/opera/resultsOpera")
+	public String showAutore(@RequestParam("id")long id, Model model){
+		Opera o = operaService.findbyId(id);
+		model.addAttribute("opera", o);
+		return "opera/resultsOpera";
+	}
+	@PostMapping("/opera")
+	public String checkCustomerInfo(@Valid @ModelAttribute Opera opera, 
+			BindingResult bindingResult, Model model) {
+
+		if (bindingResult.hasErrors()) {
+			return "opera/formOpera";
+		}
+		else {
+		
+			model.addAttribute(opera);
+			operaService.add(opera); 
+		}
+		return "opera/resultsOpera";
+	}
 }
 

@@ -6,7 +6,7 @@
 </head>
 <body>
 	<form action="#" th:action="@{/opera}" th:object="${opera}"
-		method="post">
+		method="post" enctype="multipart/form-data">
 		<div>
 			<div>
 				<span th:text="#{label.nome}">Nome: </span> <span><input
@@ -24,9 +24,15 @@
 					type="text" th:field="*{anno}" /></span> <span
 					th:if="${#fields.hasErrors('anno')}" th:text="#{label.number}">Error</span>
 			</div>
-
 			<div>
-				<span><button type="submit">Invia</button></span>
+				<span th:text="#{label.autore}">Autore:</span> <select
+					th:field="*{autore}">
+					<option th:each="autore : ${autori}" th:value="${autore.id}"
+						th:text="${autore.nome}"></option>
+				</select>
+			</div>
+			<div>
+				<input type="submit" name="submit"/>
 			</div>
 		</div>
 	</form>

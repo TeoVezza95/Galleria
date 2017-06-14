@@ -1,20 +1,15 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title>Autore Inserito</title>
+</head>
 <body>
-<div>
-    	<p th:text="'Nome: ' + ${autore.nome}" />
-    </div>
-	<div>
-    	<p th:text="'Cognome: ' + ${autore.cognome}" />
-    </div>
-	<div>
-    	<p th:text="'Nazionalita: ' + ${autore.nazionalita}" />	
-    </div>
-	<div>
-    	<p th:text="'AnnoNascita: ' + ${autore.annoNascita}" />	
-    </div>
-    <div>
-    	<p th:text="'AnnoMorte: ' + ${autore.annoMorte}" />	
-    </div>
+	<ul>
+		<li th:text="#{label.nome} +' '+ ${autore.nome}"></li>
+		<li th:text="#{label.cognome} +' '+ ${autore.cognome}"></li>
+		<li th:text="#{label.nascita} +' '+ ${autore.annoNascita}"></li>
+		<li th:if="${autore.annoMorte}" th:text="#{label.annoMorte} +' '+ ${autore.annoMorte}"></li>
+	</ul>	
 </body>
 </html>

@@ -24,7 +24,7 @@ public class Opera {
 	@Min(1)
 	private Integer anno;
 
-	@NotNull
+	
 	@ManyToOne
 	private Autore autore;
 

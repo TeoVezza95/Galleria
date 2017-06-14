@@ -40,12 +40,12 @@ public class AutoreController {
 	public String showAutori(Model model){
 		List<Autore> autori = (List<Autore>) autoreService.findAll();
 		model.addAttribute("autori", autori);
-		return "autori";
+		return "autore/autori";
 	}
 	
     @GetMapping("/autore")
     public String showForm(Autore autore) {
-        return "formAutore";
+        return "autore/formAutore";
     }
     @GetMapping("/autore/resultsAutore")
 	public String showAutore(@RequestParam("id")long id, Model model){
@@ -65,7 +65,7 @@ public class AutoreController {
     									BindingResult bindingResult, Model model) {
     	
         if (bindingResult.hasErrors()) {
-            return "formAutore";
+            return "autore/formAutore";
         } else {
         	model.addAttribute(autore);
         	autoreService.addAutore(autore); 

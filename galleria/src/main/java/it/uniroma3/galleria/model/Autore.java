@@ -31,16 +31,14 @@ public class Autore {
 
 	@NotNull
 	@Past
-	@Size(min=1)
-	@Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.DATE)
 	private Date annoNascita;
 
 	
-	@Size(min=1)
+	
 	@Temporal(TemporalType.DATE)
 	private Date annoMorte;
 
-	@NotNull
 	@OneToMany(mappedBy="autore", cascade=CascadeType.ALL)
 	private List<Opera> opere;
 

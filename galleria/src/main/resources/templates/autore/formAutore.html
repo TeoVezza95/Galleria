@@ -29,14 +29,14 @@
 				<span th:text="#{label.annoNascita}">AnnoNascita: </span> <span><input
 					type="text" th:field="*{annoNascita}" /></span> <span
 					th:if="${#fields.hasErrors('annoNascita')}"
-					th:text="#{label.number}">Error</span>
+					th:text="#{label.data}">Error</span>
 			</div>
 			<span th:text="#{label.annoMorte}">AnnoMorte: </span> <span><input
 				type="text" th:field="*{annoMorte}" /></span> <span
-				th:if="${#fields.hasErrors('annoMorte')}" th:text="#{label.number}">Error</span>
+				th:if="${#fields.hasErrors('annoMorte')}" th:text="#{label.data}">Error</span>
 		</div>
 		<div>
-			<span><button type="submit">Invia</button></span>
+			<input type="submit" name="submit"/>
 		</div>
 	</form>
 	</body>
