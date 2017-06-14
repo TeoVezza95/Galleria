@@ -7,10 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import it.uniroma3.galleria.model.Opera;
+
 import it.uniroma3.galleria.model.Autore;
 import it.uniroma3.galleria.repository.AutoreRepository;
-import it.uniroma3.galleria.repository.OperaRepository;
 
 @Service
 public class AutoreService {

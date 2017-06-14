@@ -12,10 +12,12 @@
 	<ul>
 		<th:foreach th:each="autore : ${autori}">
 			<li><a th:text="${autore.nome}"
-				th:href="@{/autore/resultsAutore(id=${autore.id})}"></a>
-				<a th:href="@{/autore/cancella(id=${autore.id})}"><span>cancella</span></a></li>
+				th:href="@{/autore/resultsAutore(id=${autore.id})}"></a> <a
+				th:href="@{/autore/cancella(id=${autore.id})}"> <span><input
+						type="submit" name="submit" value="cancella" /></span></a></li>
 		</th:foreach>
 	</ul>
-
+	<a th:href="@{/autore/Home}"> <span><input
+						type="submit" name="submit" value="ritorna alla Home" /></span></a>
 </body>
 </html>

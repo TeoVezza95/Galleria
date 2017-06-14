@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title>Utente Inserito</title>
+</head>
+<body>
+	<ul>
+		<li th:text="#{label.username} +' '+ ${user.username}"></li>	
+	</ul>	
+	<a th:href="@{/user/Home}"> <span><input
+						type="submit" name="submit" value="ritorna alla Home" /></span></a>
+</body>
+</html>

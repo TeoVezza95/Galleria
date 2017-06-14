@@ -11,10 +11,15 @@
     	<p th:text="'Anno: ' + ${opera.anno}" />	
     </div>
     <div>
-    	<p th:text="'Autore: ' + ${opera.autore.nome}" />	
+    	<p> <a th:text="${opera.autore.nome}"
+    	th:href="@{autore/resultsAutore(id=${opera.autore.id})}">...</a>
+    	</p>	
     </div>
+ 
      <div>
     	<p th:text="'Stanza: ' + ${opera.stanza.nome}" />	
     </div>
+    <a th:href="@{/opera/Home}"> <span><input
+						type="submit" name="submit" value="ritorna alla Home" /></span></a>
 </body>
 </html>

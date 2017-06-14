@@ -25,7 +25,7 @@ public class Stanza {
 	private String descrizione;
 
 	
-	@OneToMany(mappedBy="autore", cascade=CascadeType.ALL)
+	@OneToMany(mappedBy="stanza", cascade=CascadeType.ALL)
 	private List<Opera> opere;
 
 

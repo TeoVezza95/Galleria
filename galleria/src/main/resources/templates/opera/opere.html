@@ -13,9 +13,11 @@
 		<th:foreach th:each="opera : ${opere}">
 			<li><a th:text="${opera.nome}"
 				th:href="@{/opera/resultsOpera(id=${opera.id})}"></a>
-				<a th:href="@{/opera/cancella(id=${opera.id})}"><span>cancella</span></a></li>
+				<a th:href="@{/opera/cancella(id=${opera.id})}"><span><input
+						type="submit" name="submit" value="cancella" /></span></a></li>
 		</th:foreach>
 	</ul>
-
+<a th:href="@{/opera/Home}"> <span><input
+						type="submit" name="submit" value="ritorna alla Home" /></span></a>
 </body>
 </html>

@@ -45,7 +45,7 @@ public class OperaController  {
 		model.addAttribute("opere", opere);
 		return "opera/opere";
 	}
-
+	
 	@GetMapping("opera/cancella")
 	public ModelAndView deleteAutore(@RequestParam("id")long id, Model model){
 		operaService.delete(id);
@@ -57,6 +57,13 @@ public class OperaController  {
 		model.addAttribute("opera", o);
 		return "opera/resultsOpera";
 	}
+
+	@GetMapping("opera/Home")
+	public String returnHome(){
+		return "home/home";
+	}
+	
+
 	@PostMapping("/opera")
 	public String checkCustomerInfo(@Valid @ModelAttribute Opera opera, 
 			BindingResult bindingResult, Model model) {
@@ -65,7 +72,7 @@ public class OperaController  {
 			return "opera/formOpera";
 		}
 		else {
-		
+
 			model.addAttribute(opera);
 			operaService.add(opera); 
 		}

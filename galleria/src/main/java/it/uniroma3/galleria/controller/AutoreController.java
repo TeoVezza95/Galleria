@@ -20,8 +20,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import it.uniroma3.galleria.model.Autore;
-
+import it.uniroma3.galleria.model.Opera;
 import it.uniroma3.galleria.service.AutoreService;
+import it.uniroma3.galleria.service.OperaService;
 
 @Controller
 public class AutoreController {
@@ -35,7 +36,7 @@ public class AutoreController {
 	
 	@Autowired
 	AutoreService autoreService;
-	
+	OperaService operaService;
 	@GetMapping("/autori")
 	public String showAutori(Model model){
 		List<Autore> autori = (List<Autore>) autoreService.findAll();
@@ -54,10 +55,15 @@ public class AutoreController {
 		return "autore/resultsAutore";
 	}
     
+
     @GetMapping("autore/cancella")
 	public ModelAndView deleteAutore(@RequestParam("id")long id, Model model){
 		autoreService.delete(id);
 		return new ModelAndView("redirect:/autori");
+		}
+    @GetMapping("autore/Home")
+	public String returnHome(){
+		return "home/home";
 	}
     
     @PostMapping("/autore")
