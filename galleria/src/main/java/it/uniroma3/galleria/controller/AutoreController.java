@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import it.uniroma3.galleria.model.Autore;
-import it.uniroma3.galleria.model.Opera;
+
 import it.uniroma3.galleria.service.AutoreService;
 import it.uniroma3.galleria.service.OperaService;
 

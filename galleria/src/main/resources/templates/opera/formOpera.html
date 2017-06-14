@@ -28,7 +28,7 @@
 				<span th:text="#{label.autore}">Autore:</span> <select
 					th:field="*{autore}">
 					<option th:each="autore : ${autori}" th:value="${autore.id}"
-						th:text="${autore.nome}"></option>
+						th:text="${autore.nome} +' '+ ${autore.cognome}"></option>
 				</select>
 			</div>
 			<div>

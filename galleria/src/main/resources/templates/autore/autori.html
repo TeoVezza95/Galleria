@@ -11,7 +11,7 @@
 	</p>
 	<ul>
 		<th:foreach th:each="autore : ${autori}">
-			<li><a th:text="${autore.nome}"
+			<li><a th:text="${autore.nome} +' '+ ${autore.cognome}"
 				th:href="@{/autore/resultsAutore(id=${autore.id})}"></a> <a
 				th:href="@{/autore/cancella(id=${autore.id})}"> <span><input
 						type="submit" name="submit" value="cancella" /></span></a></li>

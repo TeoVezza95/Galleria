@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import it.uniroma3.galleria.model.Autore;
 import it.uniroma3.galleria.model.Opera;
+
 import it.uniroma3.galleria.repository.OperaRepository;
 
 @Service
@@ -15,6 +16,7 @@ public class OperaService {
 
     @Autowired
     private OperaRepository operaRepository; 
+ 
 
     public Iterable<Opera> findAll() {
         return this.operaRepository.findAll();
@@ -34,5 +36,5 @@ public class OperaService {
 	public List<Opera> findByAutore(Autore autore){
 		return this.operaRepository.findByAutore(autore);
 	}
-
+	
 }

@@ -11,8 +11,7 @@
     	<p th:text="'Anno: ' + ${opera.anno}" />	
     </div>
     <div>
-    	<p> <a th:text="${opera.autore.nome}"
-    	th:href="@{autore/resultsAutore(id=${opera.autore.id})}">...</a>
+    	<p> <a th:text="${opera.autore.nome} +' '+ ${opera.autore.cognome}" th:href="@{/autore/resultsAutore(id=${opera.autore.id})}"></a>
     	</p>	
     </div>
  
