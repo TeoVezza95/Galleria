@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title>stanza inserita</title>
+</head>
+<body>
+	<ul>
+		<li th:text="#{label.nome} +' '+ ${stanza.nome}"></li>
+		<li th:text="#{label.descrizione} +' '+ ${stanza.descrizione}"></li>
+	</ul>	
+</body>
+</html>

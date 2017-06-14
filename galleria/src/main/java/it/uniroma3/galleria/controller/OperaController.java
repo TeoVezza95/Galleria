@@ -16,11 +16,15 @@ import org.springframework.web.servlet.ModelAndView;
 
 import it.uniroma3.galleria.model.Autore;
 import it.uniroma3.galleria.model.Opera;
+import it.uniroma3.galleria.model.Stanza;
 import it.uniroma3.galleria.service.AutoreService;
 import it.uniroma3.galleria.service.OperaService;
+import it.uniroma3.galleria.service.StanzaService;
 
 @Controller
 public class OperaController  {
+	@Autowired
+	private StanzaService stanzaService;
 	@Autowired
 	private AutoreService autoreService;
 	@Autowired
@@ -29,9 +33,12 @@ public class OperaController  {
 	@GetMapping("/opera")
 	public String showForm(Model model, Opera opera){
 		List<Autore> autori = (List<Autore>) autoreService.findAll();
+		List<Stanza>stanze= (List<Stanza>) stanzaService.findAll();
 		model.addAttribute("autori", autori);
+		model.addAttribute("stanze",stanze);
 		return "opera/formOpera";
 	}
+
 	@GetMapping("/opere")
 	public String showAutori(Model model){
 		List<Opera> opere = (List<Opera>) operaService.findAll();
