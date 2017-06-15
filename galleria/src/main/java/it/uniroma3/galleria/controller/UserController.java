@@ -29,10 +29,7 @@ public class UserController {
 	@Autowired
 	UserService userService;
 	
-	@GetMapping("user/Home")
-	public String returnHome(){
-		return "home/home";
-	}
+	
 	
     @GetMapping("/user")
     public String showForm(User utente) {

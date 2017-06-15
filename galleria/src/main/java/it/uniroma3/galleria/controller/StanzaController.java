@@ -54,10 +54,7 @@ public class StanzaController {
 		return new ModelAndView("redirect:/stanze");
 	}
     
-    @GetMapping("stanza/Home")
-	public String returnHome(){
-		return "home/home";
-	}
+    
     
     @PostMapping("/stanza")
     public String checkCustomerInfo(@Valid @ModelAttribute Stanza stanza, 

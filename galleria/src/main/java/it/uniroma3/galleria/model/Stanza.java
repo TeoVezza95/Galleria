@@ -5,7 +5,8 @@ package it.uniroma3.galleria.model;
 import java.util.List;
 
 import javax.persistence.*;
-import javax.validation.constraints.Min;
+
+
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
