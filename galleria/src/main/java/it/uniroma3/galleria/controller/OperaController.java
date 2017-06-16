@@ -75,11 +75,11 @@ public class OperaController  {
 		else {
 
 			model.addAttribute(opera);
-			operaService.save(opera); 
+			operaService.add(opera); 
 		}
 		return "opera/resultsOpera";
 	}
-	@GetMapping("opera/modificaOpera")
+	@GetMapping("/opera/modificaOpera")
 	public String modificaOpera2(Model model,@RequestParam("id")Long id) {
 		List<Autore> autori = (List<Autore>) autoreService.findAll();
 		List<Stanza>stanze= (List<Stanza>) stanzaService.findAll();
@@ -90,7 +90,7 @@ public class OperaController  {
 		return "opera/modificaOpera";
 	}
 
-	@PostMapping("opera/modificaOpera")
+	@PostMapping("/opera/modificaOpera")
 	public String checkCustomer(@Valid @ModelAttribute Opera opera, 
 			BindingResult bindingResult, Model model ){
 		List<Autore> autori = (List<Autore>) autoreService.findAll();
@@ -98,7 +98,7 @@ public class OperaController  {
 		model.addAttribute("autori", autori);
 		model.addAttribute("stanze",stanze);
 		if (bindingResult.hasErrors()) {
-			return "opera/formOpera";
+			return "opera/modificaOpera";
 		}
 		else {
 			model.addAttribute(opera);

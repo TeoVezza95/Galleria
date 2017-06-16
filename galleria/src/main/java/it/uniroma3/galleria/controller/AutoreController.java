@@ -32,8 +32,8 @@ public class AutoreController {
 		dateFormat.setLenient(true);
 		binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));
 	} 
-		
-	
+
+
 	@Autowired
 	AutoreService autoreService;
 	OperaService operaService;
@@ -43,40 +43,64 @@ public class AutoreController {
 		model.addAttribute("autori", autori);
 		return "autore/autori";
 	}
-	
-    @GetMapping("/autore")
-    public String showForm(Autore autore) {
-        return "autore/formAutore";
-    }
-    @GetMapping("/autore/resultsAutore")
+
+	@GetMapping("/autore")
+	public String showForm(Autore autore) {
+		return "autore/formAutore";
+	}
+	@GetMapping("/autore/resultsAutore")
 	public String showAutore(@RequestParam("id")long id, Model model){
 		Autore a = autoreService.findbyId(id);
 		model.addAttribute("autore", a);
 		return "autore/resultsAutore";
 	}
-    
 
-    @GetMapping("autore/cancella")
+
+	@GetMapping("autore/cancella")
 	public ModelAndView deleteAutore(@RequestParam("id")long id, Model model){
 		autoreService.delete(id);
 		return new ModelAndView("redirect:/autori");
-		}
-    @GetMapping("autore/Home")
+	}
+	@GetMapping("autore/Home")
 	public String returnHome(){
 		return "home/home";
 	}
-    
-    @PostMapping("/autore")
-    public String checkCustomerInfo(@Valid @ModelAttribute Autore autore, 
-    									BindingResult bindingResult, Model model) {
-    	
-        if (bindingResult.hasErrors()) {
-            return "autore/formAutore";
-        } else {
-        	model.addAttribute(autore);
-        	autoreService.addAutore(autore); 
-        }
-        return "autore/resultsAutore";
-    }
 
+	@PostMapping("/autore")
+	public String checkCustomerInfo(@Valid @ModelAttribute Autore autore, 
+			BindingResult bindingResult, Model model) {
+
+		if (bindingResult.hasErrors()) {
+			return "autore/formAutore";
+		} else {
+			model.addAttribute(autore);
+			autoreService.addAutore(autore); 
+		}
+		return "autore/resultsAutore";
+	}
+	@GetMapping("/autore/modificaAutore")
+	public String modificaAutore(Model model,@RequestParam("id")Long id) {
+
+		Autore autore=autoreService.findbyId(id);
+		model.addAttribute("autore",autore);
+		return "autore/modificaAutore";
+	}
+
+	@PostMapping("/autore/modificaAutore")
+	public String modificaAutor(@Valid @ModelAttribute Autore autore, 
+			BindingResult bindingResult, Model model ){
+		if (bindingResult.hasErrors()) {
+			return "autore/modificaAutore";
+		}
+		else {
+			model.addAttribute(autore);
+			try{
+				autoreService.addAutore(autore);
+			}catch(Exception e){
+				return"autore/modificaAutore";
+
+			}
+		}
+		return "autore/resultsAutore";
+	}
 }

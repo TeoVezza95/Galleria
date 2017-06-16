@@ -51,7 +51,7 @@ public Autore() {}
 	@Temporal(TemporalType.DATE)
 	private Date annoMorte;
 
-	@OneToMany(mappedBy="autore", cascade=CascadeType.REMOVE)
+	@OneToMany(mappedBy="autore", cascade=CascadeType.ALL)
 	private List<Opera> opere;
 
 	public Long getId() {

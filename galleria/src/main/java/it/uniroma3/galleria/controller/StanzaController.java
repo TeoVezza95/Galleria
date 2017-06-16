@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import it.uniroma3.galleria.model.Autore;
 import it.uniroma3.galleria.model.Stanza;
 
 import it.uniroma3.galleria.service.StanzaService;
@@ -35,6 +36,12 @@ public class StanzaController {
 		List<Stanza> stanze = (List<Stanza>) stanzaService.findAll();
 		model.addAttribute("stanze", stanze);
 		return "stanza/stanze";
+	}
+	@GetMapping("/stanzeAdmin")
+	public String showstanzeadmin(Model model){
+		List<Stanza> stanze = (List<Stanza>) stanzaService.findAll();
+		model.addAttribute("stanze", stanze);
+		return "stanza/stanzeAdmin";
 	}
 	
     @GetMapping("/stanza")
@@ -68,5 +75,29 @@ public class StanzaController {
         }
         return "stanza/resultsStanza";
     }
+    @GetMapping("/stanza/modificaStanza")
+	public String modificaStanza(Model model,@RequestParam("id")Long id) {
 
+		Stanza stanza=stanzaService.findbyId(id);
+		model.addAttribute("stanza",stanza);
+		return "stanza/modificaStanza";
+	}
+
+	@PostMapping("/stanza/modificaStanza")
+	public String modificastanza(@Valid @ModelAttribute Stanza stanza, 
+			BindingResult bindingResult, Model model ){
+		if (bindingResult.hasErrors()) {
+			return "stanza/modificaStanza";
+		}
+		else {
+			model.addAttribute(stanza);
+			try{
+				stanzaService.addStanza(stanza);
+			}catch(Exception e){
+				return"stanza/modificaStanza";
+
+			}
+		}
+		return "stanza/resultsStanza";
+	}
 }
