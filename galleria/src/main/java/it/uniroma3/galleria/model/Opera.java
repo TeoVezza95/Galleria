@@ -6,10 +6,21 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
-public class Opera {
+public class Opera implements Comparable<Opera> {
 
+protected Opera() {}
+	
+	public Opera(String nome, String descrizione,String tecnica, Integer anno, Autore autore, Stanza stanza, String urlImmagine,double lunghezza,double larghezza) {
+		this.nome = nome;
+		
+		this.descrizione = descrizione;
+		this.anno = anno;
+		this.autore =autore;
+		this.stanza=stanza;
+	}
+	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
 	@NotNull
@@ -84,5 +95,8 @@ public class Opera {
 				"Opera[id=%d, nome='%s', descrizione='%s', anno=%d]",
 				id, nome, descrizione, anno);
 	}
-
+	@Override
+	public int compareTo(Opera that) {
+		return this.nome.toUpperCase().compareTo(that.nome.toUpperCase());
+	}
 }

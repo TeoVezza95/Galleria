@@ -31,7 +31,7 @@ public class OperaService {
 	public void delete(Long id){
 		this.operaRepository.delete(id);
 	}
-    @Transactional
+    
 	public Opera save(Opera entity) {
 		if (!em.contains(entity)) {
 			em.persist(entity);

@@ -1,6 +1,7 @@
 package it.uniroma3.galleria.model;
 
 import java.util.Date;
+import java.util.LinkedList;
 import java.util.List;
 
 import javax.persistence.*;
@@ -13,6 +14,17 @@ import javax.validation.constraints.Size;
 
 @Entity
 public class Autore {
+	
+public Autore() {}
+	
+	public Autore(String nome, String nazionalita, Date annoNascita, Date annoMorte,String url) {
+		this.nome = nome;
+		this.nazionalita = nazionalita;
+		this.annoNascita = annoNascita;
+		this.opere = new LinkedList<>();
+		this.annoMorte=annoMorte;
+	}
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -39,7 +51,7 @@ public class Autore {
 	@Temporal(TemporalType.DATE)
 	private Date annoMorte;
 
-	@OneToMany(mappedBy="autore", cascade=CascadeType.ALL)
+	@OneToMany(mappedBy="autore", cascade=CascadeType.REMOVE)
 	private List<Opera> opere;
 
 	public Long getId() {

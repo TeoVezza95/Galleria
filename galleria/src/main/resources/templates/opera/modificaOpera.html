@@ -6,7 +6,7 @@
 </head>
 <body>
 	<form action="#" th:action="@{opera/modificaOpera(id=${opera.id})}" th:object="${opera}"
-		method="post" enctype="multipart/form-data">
+		method="post" >
 		<div>
 			<div>
 				<span th:text="#{label.nome}">Nome: </span> <span><input

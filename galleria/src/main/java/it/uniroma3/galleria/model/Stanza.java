@@ -20,7 +20,7 @@ public class Stanza {
 	@NotNull
 	@Size(min=1)
 	private String nome;
-
+    private String url;
 	@NotNull
 	@Size(min=1)
 	private String descrizione;
@@ -57,6 +57,16 @@ public class Stanza {
 
 	public void setDescrizione(String descrizione) {
 		this.descrizione = descrizione;
+	}
+
+
+	public String getUrl() {
+		return url;
+	}
+
+
+	public void setUrl(String url) {
+		this.url = url;
 	}
 
 

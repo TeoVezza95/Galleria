@@ -30,7 +30,7 @@ public class OperaController  {
 	@Autowired
 	private OperaService operaService; 
 
-	
+
 
 	@GetMapping("/opere")
 	public String showAutori(Model model){
@@ -38,7 +38,7 @@ public class OperaController  {
 		model.addAttribute("opere", opere);
 		return "opera/opere";
 	}
-	
+
 	@GetMapping("opera/cancella")
 	public ModelAndView deleteAutore(@RequestParam("id")long id, Model model){
 		operaService.delete(id);
@@ -51,8 +51,8 @@ public class OperaController  {
 		return "opera/resultsOpera";
 	}
 
-	
-	
+
+
 	@GetMapping("/opera")
 	public String showForm(Model model, Opera opera){
 		List<Autore> autori = (List<Autore>) autoreService.findAll();
@@ -61,7 +61,7 @@ public class OperaController  {
 		model.addAttribute("stanze",stanze);
 		return "opera/formOpera";
 	}
-	
+
 	@PostMapping("/opera")
 	public String checkCustomerInfo(@Valid @ModelAttribute Opera opera, 
 			BindingResult bindingResult, Model model) {
@@ -80,7 +80,7 @@ public class OperaController  {
 		return "opera/resultsOpera";
 	}
 	@GetMapping("opera/modificaOpera")
-	public String checkCustomerInfo(Model model,@RequestParam("id")long id) {
+	public String modificaOpera2(Model model,@RequestParam("id")Long id) {
 		List<Autore> autori = (List<Autore>) autoreService.findAll();
 		List<Stanza>stanze= (List<Stanza>) stanzaService.findAll();
 		model.addAttribute("autori", autori);
@@ -89,7 +89,7 @@ public class OperaController  {
 		model.addAttribute("opera",opera);
 		return "opera/modificaOpera";
 	}
-	
+
 	@PostMapping("opera/modificaOpera")
 	public String checkCustomer(@Valid @ModelAttribute Opera opera, 
 			BindingResult bindingResult, Model model ){
@@ -98,16 +98,21 @@ public class OperaController  {
 		model.addAttribute("autori", autori);
 		model.addAttribute("stanze",stanze);
 		if (bindingResult.hasErrors()) {
-			return "opera/modificaOpera";
+			return "opera/formOpera";
 		}
 		else {
-         
 			model.addAttribute(opera);
-			operaService.save(opera);
+			try{
+				operaService.add(opera);
+			}catch(Exception e){
+				return"opera/modificaOpera";
+
+			}
 		}
 		return "opera/resultsOpera";
 	}
-	
-
 }
+
+
+
 

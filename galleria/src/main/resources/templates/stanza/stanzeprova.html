@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Stanze Inserite</title>
+</head>
+<body>
+	<h1>Stanze inserite nel sistema</h1>
+	<p>
+		<span th:text="#{label.nome}">Lista stanze</span>
+	</p>
+	<ul>
+		<th:foreach th:each="stanza : ${stanze}">
+			<li><a th:text="${stanza.nome}"
+				th:href="@{/stanza/resultsStanza(id=${stanza.id})}"></a>
+				<a th:href="@{/stanza/cancella(id=${stanza.id})}"><span>cancella</span></a></li>
+		</th:foreach>
+	</ul>
+	<a th:href="@{/}"> <span><input
+						type="submit" name="submit" value="ritorna alla Home" /></span></a>
+</body>
+</html>
+<h3>
+										Autore:  <a th:href="@{/autore(id=${opera.autore.id})}"><b><span th:text="${opera.autore.cognome}">autore</span></b></a>
+									</h3>

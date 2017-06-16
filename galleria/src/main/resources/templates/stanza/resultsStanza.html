@@ -1,22 +1,26 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>stanza inserita</title>
 </head>
 <body>
 	<ul>
+	<img th:src="${stanza.url}" alt="stanza immagine" style="height: 300px; width: 300px"/>
 		<li th:text="#{label.nome} +' '+ ${stanza.nome}"></li>
 		<li th:text="#{label.descrizione} +' '+ ${stanza.descrizione}"></li>
-	</ul>	
-	 <ul>
+		
+		
+	</ul>
+	<ul>
 		<th:foreach th:each="opera : ${stanza.opere}">
-			<li><a th:text="${opera.nome}" th:href="@{/opera/resultsOpera(id=${opera.id})}"></a>
-				<a th:href="@{/opera/cancella(id=${opera.id})}"><span><input
+			<li><a th:text="${opera.nome}"
+				th:href="@{/opera/resultsOpera(id=${opera.id})}"></a> <a
+				th:href="@{/opera/cancella(id=${opera.id})}"><span><input
 						type="submit" name="submit" value="cancella" /></span></a></li>
 		</th:foreach>
 	</ul>
-	<a th:href="@{/stanza/Home}"> <span><input
-						type="submit" name="submit" value="ritorna alla Home" /></span></a>
+	<a th:href="@{/}"> <span><input type="submit" name="submit"
+			value="ritorna alla Home" /></span></a>
 </body>
 </html>
