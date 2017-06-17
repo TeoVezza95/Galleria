@@ -61,10 +61,7 @@ public class AutoreController {
 		autoreService.delete(id);
 		return new ModelAndView("redirect:/autori");
 	}
-	@GetMapping("autore/Home")
-	public String returnHome(){
-		return "home/home";
-	}
+	
 
 	@PostMapping("/autore")
 	public String checkCustomerInfo(@Valid @ModelAttribute Autore autore, 

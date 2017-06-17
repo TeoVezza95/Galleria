@@ -14,7 +14,7 @@ import javax.validation.constraints.Size;
 
 @Entity
 public class Autore {
-	
+	private String url;
 public Autore() {}
 	
 	public Autore(String nome, String nazionalita, Date annoNascita, Date annoMorte,String url) {
@@ -23,6 +23,8 @@ public Autore() {}
 		this.annoNascita = annoNascita;
 		this.opere = new LinkedList<>();
 		this.annoMorte=annoMorte;
+		this.url=url;
+		
 	}
 	
 	@Id
@@ -72,6 +74,15 @@ public Autore() {}
 	public void setCognome(String cognome) {
 		this.cognome = cognome;
 	}
+	
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
+	}
+
 	public String getNazionalita() {
 		return nazionalita;
 	}

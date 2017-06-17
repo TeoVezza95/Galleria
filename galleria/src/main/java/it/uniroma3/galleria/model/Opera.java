@@ -10,15 +10,15 @@ public class Opera implements Comparable<Opera> {
 
 protected Opera() {}
 	
-	public Opera(String nome, String descrizione,String tecnica, Integer anno, Autore autore, Stanza stanza, String urlImmagine,double lunghezza,double larghezza) {
+	public Opera(String nome, String descrizione,String tecnica, Integer anno, Autore autore, Stanza stanza, String url,double lunghezza,double larghezza) {
 		this.nome = nome;
-		
+		this.url=url;
 		this.descrizione = descrizione;
 		this.anno = anno;
 		this.autore =autore;
 		this.stanza=stanza;
 	}
-	
+	private String url;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -71,6 +71,14 @@ protected Opera() {}
 
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
 	}
 
 	public String getDescrizione() {

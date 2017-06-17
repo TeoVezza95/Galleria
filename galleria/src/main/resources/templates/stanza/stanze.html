@@ -83,7 +83,7 @@
 			
 			<ul>			
 			<div th:each="stanza : ${stanze}">
-					<li><div class="row">
+					<div class="row">
 							<div class="col-md-4 col-sm-4">
 								<a th:href="@{/stanza/resultsStanza(id=${stanza.id})}" >
 								<img th:src="${stanza.url}" alt="Rounded Image" style="height: 200px; width: 200px" class="img-rounded"/></a>
@@ -96,7 +96,7 @@
 								</div>
 							</div>
 						</div>	
-					</li>
+					
 				</div>	
 			</ul>						
 		</div>
@@ -107,8 +107,7 @@
 		<div class="overlayer">
 			<div class="container">
 				<div class="row">
-					<div class="credits">&copy; Progetto Sistemi Informativi Su
-						Web || Di Leo Simone - Catalli Lorenzo</div>
+					<div class="credits">&copy; La nostra Galleria d'arte! Teodosio vezza & Daria Marone</div>
 				</div>
 			</div>
 		</div>

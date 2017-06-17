@@ -39,6 +39,11 @@
 				</select>
 			</div>
 			<div>
+			<span th:text="#{label.url}">Url: </span> <span><input
+				type="text" th:field="*{url}" /></span> <span
+				th:if="${#fields.hasErrors('url')}" th:text="#{label.mandatory}">Error</span>
+		</div>
+			<div>
 				<input type="submit" name="submit"/>
 			</div>
 		</div>
