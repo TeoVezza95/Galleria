@@ -2,25 +2,29 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <body>
 	<div>
-	<img th:src="${opera.url}" alt="opera immagine" style="height: 250px; width: 400px"/>
-	
-    	<p th:text="'Nome: ' + ${opera.nome}" />
-    </div>
+		<img th:src="${opera.url}" alt="opera immagine"
+			style="height: 250px; width: 400px" />
+
+		<p th:text="'Nome: ' + ${opera.nome}" />
+	</div>
 	<div>
-    	<p th:text="'Descrizione: ' + ${opera.descrizione}" />
-    </div>
+		<p th:text="'Descrizione: ' + ${opera.descrizione}" />
+	</div>
 	<div>
-    	<p th:text="'Anno: ' + ${opera.anno}" />	
-    </div>
-    <div>
-    	<p> <a th:text="${opera.autore.nome} +' '+ ${opera.autore.cognome}" th:href="@{/autore/resultsAutore(id=${opera.autore.id})}"></a>
-    	</p>	
-    </div>
- 
-     <div>
-    	<p th:text="'Stanza: ' + ${opera.stanza.nome}" />	
-    </div>
-    <a th:href="@{/}"> <span><input
-						type="submit" name="submit" value="ritorna alla Home" /></span></a>
+		<p th:text="'Anno: ' + ${opera.anno}" />
+	</div>
+	<div>
+		<p>
+			<a th:text="'Autore'+ ${opera.autore.nome} +' '+ ${opera.autore.cognome}"
+				th:href="@{/autore/resultsAutore(id=${opera.autore.id})}"></a>
+		</p>
+	</div>
+
+	<div>
+		<p> <a th:text="'Stanza: ' + ${opera.stanza.nome}" 
+			th:href="@{/stanza/resultsStanza(id=${opera.stanza.id})}"></a></p>
+	</div>
+	<a th:href="@{/}"> <span><input type="submit" name="submit"
+			value="ritorna alla Home" /></span></a>
 </body>
 </html>

@@ -38,6 +38,13 @@ public class OperaController  {
 		model.addAttribute("opere", opere);
 		return "opera/opere";
 	}
+	
+	@GetMapping("/opereAdmin")
+	public String showOpereAdmin(Model model){
+		List<Opera> opere = (List<Opera>) operaService.findAll();
+		model.addAttribute("opere", opere);
+		return "opera/opereAdmin";
+	}
 
 	@GetMapping("opera/cancella")
 	public ModelAndView deleteAutore(@RequestParam("id")long id, Model model){

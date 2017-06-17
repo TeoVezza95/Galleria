@@ -20,7 +20,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import it.uniroma3.galleria.model.Autore;
-
 import it.uniroma3.galleria.service.AutoreService;
 import it.uniroma3.galleria.service.OperaService;
 
@@ -43,6 +42,13 @@ public class AutoreController {
 		model.addAttribute("autori", autori);
 		return "autore/autori";
 	}
+	
+	@GetMapping("/autoriAdmin")
+	public String showAutoriAdmin(Model model){
+		List<Autore> autori = (List<Autore>) autoreService.findAll();
+		model.addAttribute("autori", autori);
+		return "autore/autoriAdmin";
+	}
 
 	@GetMapping("/autore")
 	public String showForm(Autore autore) {
@@ -53,6 +59,13 @@ public class AutoreController {
 		Autore a = autoreService.findbyId(id);
 		model.addAttribute("autore", a);
 		return "autore/resultsAutore";
+	}
+
+	@GetMapping("/autore/resultsAutoreUtente")
+	public String showAutorePerUtente(@RequestParam("id")long id, Model model){
+		Autore a = autoreService.findbyId(id);
+		model.addAttribute("autore", a);
+		return "autore/resultsAutoreUtente";
 	}
 
 

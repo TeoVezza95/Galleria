@@ -26,80 +26,84 @@
 
 </head>
 
-<body>
-	<div id="navbar-full">
-		<div class="container">
-			<nav
-				class="navbar navbar-ct-black navbar-transparent navbar-fixed-top"
-				role="navigation">
-				<div class="container">
-					<!-- Brand and toggle get grouped for better mobile display -->
-					<div class="navbar-header">
-						<button type="button" class="navbar-toggle" data-toggle="collapse"
-							data-target="#bs-example-navbar-collapse-1">
-							<span class="sr-only">Toggle navigation</span> <span
-								class="icon-bar"></span> <span class="icon-bar"></span> <span
-								class="icon-bar"></span>
-						</button>
-						<a class="navbar-brand" href="index.html">HomePage</a>
-					</div>
+<body id="page-top">
 
-					<!-- Collect the nav links, forms, and other content for toggling -->
-					<div class="collapse navbar-collapse"
-						id="bs-example-navbar-collapse-1">
-						<ul class="nav navbar-nav">
-							<!-- Inserisci elementi nella navbar -->
-						</ul>
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href="index.html">HOME</a>
+            </div>
 
-						<ul class="nav navbar-nav navbar-right">
-							<!-- Inserisci elementi nella navbar -->
-						</ul>
-					</div>
-					<!-- /.navbar-collapse -->
-				</div>
-				<!-- /.container-fluid -->
-			</nav>
-		</div>
-		<!--  end container-->
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a class="page-scroll" href="/autori">AUTORI</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/stanze">MOSTRE</a>
+                    </li>
+                    
+                    <li>
+                        <a class="page-scroll" href="/opere">OPERE</a>
+                    </li>
+                    
+                    <li>
+                        <a class="page-scroll" href="/user">REGISTRATI</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/admin">AMMINISTRATORE</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
 
 		<div class='blurred-container'>
 			<div class="motto">
-				<div class="border">Le Nostre Stanze</div>
+				<div class="border">MOSTRE</div>
 			</div>
-			<div class="img-src" style="background-image: url('img/dali.jpg')"></div>
+			<div class="img-src" style="background-image: url('img/museo.jpg')"></div>
 			<div class='img-src blur'
-				style="background-image: url('img/dali.jpg')"></div>
+				style="background-image: url('img/museo.jpg')"></div>
 		</div>
 
-	</div>
+	
 
 	<div class="main">
 		<div class="container tim-container">
-			<h1 class="text-center">
-				Qui potrai trovare molte stanze ricche di opere!<small
-					class="subtitle">clicca sulla stanza per accedervi!!</small>
+			<h1 class="text-left">
+				Mostre<small
+					class="subtitle">Home/Mostre</small>
 			</h1>
 
 			<ul>
-					<div th:each="stanza : ${stanze}">
-						<div class="row">
-							<div class="col-md-4 col-sm-4">
+				<div th:each="stanza : ${stanze}">
+					<div class="row">
+						<div class="col-md-4 col-sm-4">
 
-								<a th:href="@{/stanza/resultsStanza(id=${stanza.id})}"> <img
-									th:src="${stanza.url}" alt="Rounded Image"
-									style="height: 200px; width: 200px" class="img-rounded" /></a>
-							</div>
-							<div class="col-md-4 col-sm-4">
-								<div class="tim-typo">
-									<h1 class="text-center">
-										<a th:text="${stanza.nome}"
-											th:href="@{/stanza/resultsStanza(id=${stanza.id})}"></a>
+							<a th:href="@{/stanza/resultsStanza(id=${stanza.id})}"> <img
+								th:src="${stanza.url}" alt="Rounded Image"
+								style="height: 200px; width: 200px" class="img-rounded" /></a>
+						</div>
+						<div >
+							<div >
+								<h2 class="text-left">
+									<a th:text="${stanza.nome}"
+										th:href="@{/stanza/resultsStanza(id=${stanza.id})}"></a>
 									<div class="space"></div>
-									</h1>
-								</div>
+								</h2>
 							</div>
 						</div>
 					</div>
+				</div>
 			</ul>
 		</div>
 		<div class="space"></div>
@@ -109,7 +113,7 @@
 		<div class="overlayer">
 			<div class="container">
 				<div class="row">
-					<div class="credits">&copy; Teodosio vezza---Daria Marone</div>
+					<div class="credits">&copy; Teodosio Vezza---Daria Marone</div>
 				</div>
 			</div>
 		</div>

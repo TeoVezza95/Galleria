@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Autore Inserito</title>
+</head>
+<body>
+	<ul>
+		<img th:src="${autore.url}" alt="autore immagine" style="height: 300px; width: 300px" />
+		<li th:text="#{label.nome} +' '+ ${autore.nome}"></li>
+		<li th:text="#{label.cognome} +' '+ ${autore.cognome}"></li>
+		<li th:text="#{label.annoNascita} +' '+ ${autore.annoNascita}"></li>
+		<li th:if="${autore.annoMorte}"
+			th:text="#{label.annoMorte} +' '+ ${autore.annoMorte}"></li>
+		<ul>
+			<th:foreach th:each="opera : ${autore.opere}">
+				<li><a th:text="${opera.nome}"
+					th:href="@{/opera/resultsOpera(id=${opera.id})}"></a> </li>
+			</th:foreach>
+		</ul>
+	</ul>
+	<a th:href="@{/}"> <span><input type="submit" name="submit"
+			value="ritorna alla Home" /></span></a>
+
+</body>
+</html>

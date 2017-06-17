@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Nuovo admin</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<form th:action="@{/admin/registraAdmin}" th:object="${admin}" method="post">
+		<div>
+			<div>
+				<span th:text="#{label.username}">Username:: </span> <span><input
+					type="text" th:field="*{username}" /></span> <span
+					th:if="${#fields.hasErrors('username')}"
+					th:text="#{label.mandatory}">Error</span>
+			</div>
+			<div>
+				<span th:text="#{label.nome}">Nome: </span> <span><input
+					type="text" th:field="*{nome}" /></span> <span
+					th:if="${#fields.hasErrors('nome')}" th:text="#{label.mandatory}">Error</span>
+			</div>
+			<div>
+				<span th:text="#{label.cognome}">Cognome: </span> <span><input
+					type="text" th:field="*{cognome}" /></span> <span
+					th:if="${#fields.hasErrors('cognome')}"
+					th:text="#{label.mandatory}">Error</span>
+			</div>
+			<div>
+				<span th:text="#{label.password}">Password: </span> <span><input
+					type="text" th:field="*{password}" /></span> <span
+					th:if="${#fields.hasErrors('password')}"
+					th:text="#{label.passwordError}">Error</span>
+			</div>
+			
+			<span th:text="#{label.email}">Email: </span> <span><input
+				type="text" th:field="*{email}" /></span> <span
+				th:if="${#fields.hasErrors('email')}" 
+				th:text="#{label.mandatory}">Error</span>
+		</div>
+		<div>
+			<input type="submit" name="submit"/>
+		</div>
+	</form>
+	</body>
+</html>

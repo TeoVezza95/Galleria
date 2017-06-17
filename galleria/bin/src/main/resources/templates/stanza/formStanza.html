@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Nuova Stanza</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<form action="#" th:action="@{/stanza}" th:object="${stanza}"
+		method="post">
+		<div>
+			<span th:text="#{label.nome}">Nome: </span> <span><input
+				type="text" th:field="*{nome}" /></span> <span
+				th:if="${#fields.hasErrors('nome')}" th:text="#{label.mandatory}">Error</span>
+		</div>
+		<div>
+			<span th:text="#{label.descrizione}">Descrizione: </span> <span><input
+				type="text" th:field="*{descrizione}" /></span> <span
+				th:if="${#fields.hasErrors('descrizione')}" th:text="#{label.mandatory}">Error</span>
+		</div>
+		<div>
+			<span th:text="#{label.url}">Url: </span> <span><input
+				type="text" th:field="*{url}" /></span> <span
+				th:if="${#fields.hasErrors('url')}" th:text="#{label.mandatory}">Error</span>
+		</div>
+		<div>
+			<input type="submit" name="submit" />
+		</div>
+	</form>
+</body>
+</html>

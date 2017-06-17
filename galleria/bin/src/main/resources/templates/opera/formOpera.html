@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Nuova opera</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<form action="#" th:action="@{/opera}" th:object="${opera}"
+		method="post" enctype="multipart/form-data">
+		<div>
+			<div>
+				<span th:text="#{label.nome}">Nome: </span> <span><input
+					type="text" th:field="*{nome}" /></span> <span
+					th:if="${#fields.hasErrors('nome')}" th:text="#{label.mandatory}">Error</span>
+			</div>
+			<div>
+				<span th:text="#{label.descrizione}">Descrizione: </span> <span><input
+					type="text" th:field="*{descrizione}" /></span> <span
+					th:if="${#fields.hasErrors('descrizione')}"
+					th:text="#{label.mandatory}">Error</span>
+			</div>
+			<div>
+				<span th:text="#{label.anno}">Anno: </span> <span><input
+					type="text" th:field="*{anno}" /></span> <span
+					th:if="${#fields.hasErrors('anno')}" th:text="#{label.number}">Error</span>
+			</div>
+			<div>
+				<span th:text="#{label.autore}">Autore:</span> <select
+					th:field="*{autore}">
+					<option th:each="autore : ${autori}" th:value="${autore.id}"
+						th:text="${autore.nome} +' '+ ${autore.cognome}"></option>
+				</select>
+			</div>
+			<div>
+				<span th:text="#{label.stanza}">Stanza:</span> <select
+					th:field="*{stanza}">
+					<option th:each="stanza : ${stanze}" th:value="${stanza.id}"
+						th:text="${stanza.nome}"></option>
+				</select>
+			</div>
+			<div>
+			<span th:text="#{label.url}">Url: </span> <span><input
+				type="text" th:field="*{url}" /></span> <span
+				th:if="${#fields.hasErrors('url')}" th:text="#{label.mandatory}">Error</span>
+		</div>
+			<div>
+				<input type="submit" name="submit"/>
+			</div>
+		</div>
+	</form>
+</body>
+</html>
