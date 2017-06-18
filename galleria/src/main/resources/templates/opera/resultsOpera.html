@@ -1,30 +1,27 @@
-<!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
-<body>
-	<div>
-		<img th:src="${opera.url}" alt="opera immagine"
-			style="height: 250px; width: 400px" />
+<div class ="main-container">
 
-		<p th:text="'Nome: ' + ${opera.nome}" />
+<div class=" highlight" style="margin-left:0;">
+<h2>Super Product Highlight</h2>
+	<div class="row">
+  
+		
+        <img src ="http://davidnaylor.org/temp/thunderbird-logo-200x200.png" /> 
+        <ul>
+            <li>Integer et malesuada turpis. Proin urna felis.</li>
+            <li>Integer et malesuada turpis. Proin urna felis.</li>
+            <li>Integer et malesuada turpis. Proin urna felis.</li>
+            <li>Integer et malesuada turpis. Proin urna felis.</li>
+            <li>Integer et malesuada turpis. Proin urna felis.</li>
+           
+        </ul>
+        </div>
+        <div class="row">
+        <p>Morbi laoreet ipsum sem, eu condimentum ante efficitur vel.
+        Donec at nibh risus. Nam mollis nulla eget scelerisque facilisis. 
+        Suspendisse sit amet condimentum dolor. Vestibulum euismod congue mi
+        pulvinar dignissim. </p>
+        <button class = "btn btn-primary">Buy Now</button>
+       <button class = "btn btn-warning" >Read More</button>
+        </div>
+    </div>
 	</div>
-	<div>
-		<p th:text="'Descrizione: ' + ${opera.descrizione}" />
-	</div>
-	<div>
-		<p th:text="'Anno: ' + ${opera.anno}" />
-	</div>
-	<div>
-		<p>
-			<a th:text="'Autore'+ ${opera.autore.nome} +' '+ ${opera.autore.cognome}"
-				th:href="@{/autore/resultsAutore(id=${opera.autore.id})}"></a>
-		</p>
-	</div>
-
-	<div>
-		<p> <a th:text="'Stanza: ' + ${opera.stanza.nome}" 
-			th:href="@{/stanza/resultsStanza(id=${opera.stanza.id})}"></a></p>
-	</div>
-	<a th:href="@{/}"> <span><input type="submit" name="submit"
-			value="ritorna alla Home" /></span></a>
-</body>
-</html>
