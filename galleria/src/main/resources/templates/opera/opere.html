@@ -1,6 +1,8 @@
 
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:tiles="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 
 <head>
 <meta charset="utf-8" />
@@ -83,7 +85,7 @@
 						<div >
 							<div >
 								<h2 class="text-left">
-									<a th:text="${opera.nome}"
+									<a style="color: grey" th:text="${opera.nome}"
 										th:href="@{/opera/resultsOpera(id=${opera.id})}"></a>
 									<div class="space"></div>
 								</h2>

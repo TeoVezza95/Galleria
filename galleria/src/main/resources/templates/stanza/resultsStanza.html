@@ -1,28 +1,45 @@
+
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>stanza inserita</title>
+
+<meta charset="utf-8" />
+<link rel="apple-touch-icon" sizes="76x76" href="img/apple-icon.png" />
+<link rel="icon" type="image/png" href="img/apple-touch-icon.png" />
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+<link href="../static/css/results.css" th:href="@{/css/results.css}"
+	rel="stylesheet" />
+
+
 </head>
 <body>
-	<ul>
-	<img th:src="${stanza.url}" alt="stanza immagine" style="height: 300px; width: 300px"/>
-		<li th:text="#{label.nome} +' '+ ${stanza.nome}"></li>
-		<li th:text="#{label.descrizione} +' '+ ${stanza.descrizione}"></li>
+	<div class="main-container">
+
+		<div class=" highlight" style="margin: 0 auto;">
+
+			<h1 th:text="${stanza.nome}"> </h1>
+			<div class="row">
+
+				<img th:src="${stanza.url}" alt="stanza immagine"
+					style="height: 100px; width: 100px" />
+				
+					<div>
+						<p th:text="'Nome: ' + ${stanza.nome}" />
+					</div>
+				
+			</div>
+			<div class="row">
+				<div>
+    	<p th:text="'Descrizione: ' + ${stanza.descrizione}" />
+    </div>
+				<a th:href="@{/}"> <span><input type="submit" name="submit"
+			value="Home" /></span></a>
 		
-		
-	</ul>
-	<ul>
-		<th:foreach th:each="opera : ${stanza.opere}">
-			<div>
-			<a th:text="${opera.nome}"
-				th:href="@{/opera/resultsOpera(id=${opera.id})}"></a></div>
-				<div><img th:src="${opera.url}" alt="opera immagine" style="height: 125px; width: 200px"/></div>
-				 <a th:href="@{/opera/cancella(id=${opera.id})}"><span><input
-						type="submit" name="submit" value="cancella" /></span></a>
-		</th:foreach>
-	</ul>
-	<a th:href="@{/}"> <span><input type="submit" name="submit"
-			value="ritorna alla Home" /></span></a>
+			</div>
+		</div>
+	</div>
+
 </body>
 </html>

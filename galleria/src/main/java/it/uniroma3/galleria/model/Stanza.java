@@ -20,6 +20,7 @@ public class Stanza {
 	@NotNull
 	@Size(min=1)
 	private String nome;
+	
     private String url;
 	@NotNull
 	@Size(min=1)

@@ -49,7 +49,7 @@ public class OperaController  {
 	@GetMapping("opera/cancella")
 	public ModelAndView deleteAutore(@RequestParam("id")long id, Model model){
 		operaService.delete(id);
-		return new ModelAndView("redirect:/opere");
+		return new ModelAndView("redirect:/opereAdmin");
 	}
 	@GetMapping("/opera/resultsOpera")
 	public String showAutore(@RequestParam("id")long id, Model model){

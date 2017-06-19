@@ -52,9 +52,7 @@
                         <a class="page-scroll" href="/opere">OPERE</a>
                     </li>
                     
-                    <li>
-                        <a class="page-scroll" href="/user">REGISTRATI</a>
-                    </li>
+                    
                     <li>
                         <a class="page-scroll" href="/admin">AMMINISTRATORE</a>
                     </li>
@@ -92,9 +90,11 @@
 						</div>
 						<div >
 							<div >
-								<h2 class="text-left">
+								<h2 class="text-left" style="color:black">
+									
 									<a th:text="${autore.nome} +' '+ ${autore.cognome}"
-										th:href="@{/autore/resultsAutoreUtente(id=${autore.id})}"></a>
+										th:href="@{/autore/resultsAutoreUtente(id=${autore.id})}" style="color: grey"></a>
+						
 									<div class="space"></div>
 								</h2>
 							</div>
