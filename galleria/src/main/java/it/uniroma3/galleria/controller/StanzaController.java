@@ -25,8 +25,6 @@ import it.uniroma3.galleria.service.StanzaService;
 @Controller
 public class StanzaController {
 	
-		
-	
 	@Autowired
 	StanzaService stanzaService;
 	
