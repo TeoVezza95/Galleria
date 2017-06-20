@@ -10,11 +10,13 @@ public class Opera implements Comparable<Opera> {
 
 protected Opera() {}
 	
-	public Opera(String nome, String descrizione,String tecnica, Integer anno, Autore autore, Stanza stanza, String url,double lunghezza,double larghezza) {
+	public Opera(String nome, String descrizione,String tecnica, Integer anno,String dim, Autore autore, Stanza stanza, String url,double lunghezza,double larghezza) {
 		this.nome = nome;
 		this.url=url;
 		this.descrizione = descrizione;
+		this.tecnica = tecnica;
 		this.anno = anno;
+		this.dimensione= dim;
 		this.autore =autore;
 		this.stanza=stanza;
 	}
@@ -30,7 +32,32 @@ protected Opera() {}
 	@NotNull
 	@Size(min=1)
 	private String descrizione;
+	
 
+	@NotNull
+	@Size(min=1)
+	private String tecnica;
+	
+
+	@NotNull
+	@Size(min=1)
+	private String dimensione;
+
+	public String getTecnica() {
+		return tecnica;
+	}
+
+	public void setTecnica(String tecnica) {
+		this.tecnica = tecnica;
+	}
+
+	public String getDimensione() {
+		return dimensione;
+	}
+
+	public void setDimensione(String dimensione) {
+		this.dimensione = dimensione;
+	}
 	@NotNull
 	@Min(1)
 	private Integer anno;
@@ -41,6 +68,7 @@ protected Opera() {}
 	@ManyToOne
 	private Autore autore;
 
+	
 	public Autore getAutore() {
 		return autore;
 	}

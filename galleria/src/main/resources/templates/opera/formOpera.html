@@ -30,10 +30,11 @@
 					th:if="${#fields.hasErrors('nome')}" th:text="#{label.mandatory}">Error</span>
 			</div>
 			<div>
-				<span th:text="#{label.descrizione}">Descrizione: </span> <span><input
-					type="text" th:field="*{descrizione}" /></span> <span
-					th:if="${#fields.hasErrors('descrizione')}"
-					th:text="#{label.mandatory}">Error</span>
+				<span th:text="#{label.autore}">Autore:</span> <select
+					th:field="*{autore}">
+					<option th:each="autore : ${autori}" th:value="${autore.id}"
+						th:text="${autore.nome} +' '+ ${autore.cognome}"></option>
+				</select>
 			</div>
 			<div>
 				<span th:text="#{label.anno}">Anno: </span> <span><input
@@ -41,12 +42,25 @@
 					th:if="${#fields.hasErrors('anno')}" th:text="#{label.number}">Error</span>
 			</div>
 			<div>
-				<span th:text="#{label.autore}">Autore:</span> <select
-					th:field="*{autore}">
-					<option th:each="autore : ${autori}" th:value="${autore.id}"
-						th:text="${autore.nome} +' '+ ${autore.cognome}"></option>
-				</select>
+				<span th:text="#{label.tecnica}">Tecnica: </span> <span><input
+					type="text" th:field="*{tecnica}" /></span> <span
+					th:if="${#fields.hasErrors('tecnica')}"
+					th:text="#{label.mandatory}">Error</span>
 			</div>
+			<div>
+				<span th:text="#{label.dimensione}">Dimensioni: </span> <span><input
+					type="text" th:field="*{dimensione}" /></span> <span
+					th:if="${#fields.hasErrors('dimensione')}"
+					th:text="#{label.mandatory}">Error</span>
+			</div>
+			
+			<div>
+				<span th:text="#{label.descrizione}">Descrizione: </span> <span><input
+					type="text" th:field="*{descrizione}" /></span> <span
+					th:if="${#fields.hasErrors('descrizione')}"
+					th:text="#{label.mandatory}">Error</span>
+			</div>
+			
 			<div>
 				<span th:text="#{label.stanza}">Stanza:</span> <select
 					th:field="*{stanza}">

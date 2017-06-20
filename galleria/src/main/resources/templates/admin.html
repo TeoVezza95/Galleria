@@ -32,14 +32,14 @@
 						<a href="#" class="list-group-item active"> <br /> <br /> <i
 							class="glyphicon glyphicon-home"> </i> Home<br /> <br />
 						</a>
-						<a href="#" class="list-group-item "> <br /> <br /> <i
-							class="glyphicon glyphicon-picture"></i> Opera<br /> <br />
+						<a href="#" class="list-group-item"> <br /> <br />
+							<h4 class="glyphicon glyphicon-inbox"></h4> Stanza <br /> <br />
 						</a>
 						<a href="#" class="list-group-item"> <br /> <br />
 							<h4 class="glyphicon glyphicon-user"></h4> Autore <br /> <br />
 						</a>
-						<a href="#" class="list-group-item"> <br /> <br />
-							<h4 class="glyphicon glyphicon-inbox"></h4> Stanza <br /> <br />
+						<a href="#" class="list-group-item "> <br /> <br /> <i
+							class="glyphicon glyphicon-picture"></i> Opera<br /> <br />
 						</a>
 						<a href="#" class="list-group-item"> <br /> <br />
 							<h4 class="glyphicon glyphicon-cog"></h4> Admin <br /> <br />
@@ -59,6 +59,50 @@
 								<a th:href="@{/}" class="btn btn-sm btn-primary btn-block"
 									role="button">Vai all'HomePage</a>
 							</h3>
+						</center>
+					</div>
+					
+					<!-- stanza section -->
+					<div class="bhoechie-tab-content">
+
+						<center>
+							<h1 class="glyphicon glyphicon-inbox"
+								style="font-size: 12em; color: #00001a"></h1>
+							<h2 style="margin-top: 0; color: #00001a">
+								<h3 style="margin-top: 0; color: #00001a">Modifica</h3>
+								<a th:href="@{/stanza}" class="btn btn-sm btn-primary btn-block"
+									role="button">Inserisci nuova Stanza (Mostra)</a>
+							</h2>
+
+							<h1 class="glyphicon glyphicon-list"
+								style="font-size: 12em; color: #00001a"></h1>
+							<h2 style="margin-top: 0; color: #00001a">
+								<a th:href="@{/stanzeAdmin}"
+									class="btn btn-sm btn-primary btn-block" role="button">Visualizza
+									elenco stanze (Mostre)</a>
+							</h2>
+
+						</center>
+					</div>
+					<!-- autore search -->
+					<div class="bhoechie-tab-content">
+
+						<center>
+							<h1 class="glyphicon glyphicon-user"
+								style="font-size: 12em; color: #00001a"></h1>
+							<h2 style="margin-top: 0; color: #00001a">
+								<h3 style="margin-top: 0; color: #00001a">Modifica</h3>
+								<a th:href="@{/autore}" class="btn btn-sm btn-primary btn-block"
+									role="button">Inserisci nuovo Autore</a>
+							</h2>
+
+							<h1 class="glyphicon glyphicon-list"
+								style="font-size: 12em; color: #00001a"></h1>
+							<h2 style="margin-top: 0; color: #00001a">
+								<a th:href="@{/autoriAdmin}"
+									class="btn btn-sm btn-primary btn-block" role="button">Visualizza
+									elenco autori</a>
+							</h2>
 						</center>
 					</div>
 					<!-- opera section -->
@@ -83,49 +127,8 @@
 						</center>
 					</div>
 
-					<!-- autore search -->
-					<div class="bhoechie-tab-content">
-
-						<center>
-							<h1 class="glyphicon glyphicon-user"
-								style="font-size: 12em; color: #00001a"></h1>
-							<h2 style="margin-top: 0; color: #00001a">
-								<h3 style="margin-top: 0; color: #00001a">Modifica</h3>
-								<a th:href="@{/autore}" class="btn btn-sm btn-primary btn-block"
-									role="button">Inserisci nuovo Autore</a>
-							</h2>
-
-							<h1 class="glyphicon glyphicon-list"
-								style="font-size: 12em; color: #00001a"></h1>
-							<h2 style="margin-top: 0; color: #00001a">
-								<a th:href="@{/autoriAdmin}"
-									class="btn btn-sm btn-primary btn-block" role="button">Visualizza
-									elenco autori</a>
-							</h2>
-						</center>
-					</div>
-					<!-- stanza section -->
-					<div class="bhoechie-tab-content">
-
-						<center>
-							<h1 class="glyphicon glyphicon-inbox"
-								style="font-size: 12em; color: #00001a"></h1>
-							<h2 style="margin-top: 0; color: #00001a">
-								<h3 style="margin-top: 0; color: #00001a">Modifica</h3>
-								<a th:href="@{/stanza}" class="btn btn-sm btn-primary btn-block"
-									role="button">Inserisci nuova Stanza (Mostra)</a>
-							</h2>
-
-							<h1 class="glyphicon glyphicon-list"
-								style="font-size: 12em; color: #00001a"></h1>
-							<h2 style="margin-top: 0; color: #00001a">
-								<a th:href="@{/stanzeAdmin}"
-									class="btn btn-sm btn-primary btn-block" role="button">Visualizza
-									elenco stanze (Mostre)</a>
-							</h2>
-
-						</center>
-					</div>
+					
+					
 					<!-- admin section -->
 					<div class="bhoechie-tab-content">
 
