@@ -40,10 +40,9 @@ public class StanzaController {
 		model.addAttribute("stanze", stanze);
 		return "stanza/stanzeAdmin";
 	}
-	
     @GetMapping("/stanza")
     public String showForm(Stanza stanza) {
-        return "stanza/formstanza";
+        return "stanza/formStanza";
     }
     @GetMapping("/stanza/resultsStanza")
 	public String showStanza(@RequestParam("id")long id, Model model){
