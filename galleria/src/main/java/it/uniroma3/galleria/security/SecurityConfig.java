@@ -25,7 +25,7 @@ auth.jdbcAuthentication().dataSource(dataSource)
     @Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
-		.antMatchers("/","/css/**", "/js/**", "/img/**","/vendor/**","/less/**","/mail/**","/signUp","/stanza/stanze","/opera/resultsOpera")
+		.antMatchers("/","/css/**", "/js/**", "/img/**","/vendor/**","/less/**","/mail/**","/signUp","/stanze","/opera/resultsOpera","/autore/resultsAutoreUtente","/opere","/autori","/stanza/resultsStanza")
 		.permitAll().antMatchers("/admin/**").hasRole("ADMIN")
 				.anyRequest().authenticated().and().formLogin().loginPage("/login").permitAll().and().logout()
 				.permitAll();
