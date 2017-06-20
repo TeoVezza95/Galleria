@@ -50,6 +50,12 @@ public class StanzaController {
 		model.addAttribute("stanza", s);
 		return "stanza/resultsStanza";
 	}
+    @GetMapping("/stanza/resultsStanzaAdmin")
+	public String showStanzaAdmin(@RequestParam("id")long id, Model model){
+		Stanza s = stanzaService.findbyId(id);
+		model.addAttribute("stanza", s);
+		return "stanza/resultsStanzaAdmin";
+	}
     
     @GetMapping("stanza/cancella")
 	public ModelAndView deleteStanza(@RequestParam("id")long id, Model model){

@@ -26,7 +26,7 @@
 					style="height: 200px; width: 200px" />
 				
 					<div>
-						<p th:text="'Nome: ' + ${autore.nome} + ${autore.cognome}" />
+						<p th:text="'Nome: ' + ${autore.nome } + ${ autore.cognome}" />
 					</div>
 					
 					<div>
@@ -47,9 +47,10 @@
     	<ul>
 			<th:foreach th:each="opera : ${autore.opere}">
 				<li><a th:text="${opera.nome}"
-					th:href="@{/opera/resultsOpera(id=${opera.id})}"></a> <a
-					th:href="@{/opera/cancella(id=${opera.id})}"><span><input
-							type="submit" name="submit" value="cancella" /></span></a></li>
+					th:href="@{/opera/resultsOpera(id=${opera.id})}"></a>
+					<a th:href="@{/opera/cancella(id=${opera.id})}">
+					<span> <input type = "submit" name = "submit" value = "cancella"/></span></a>
+					</li>
 			</th:foreach>
 		</ul>
     </div>

@@ -25,7 +25,7 @@
 					<ul>
 						<th:foreach th:each="stanza : ${stanze}">
 							<li><a th:text="${stanza.nome}"
-								th:href="@{/stanza/resultsStanza(id=${stanza.id})}"></a> <a
+								th:href="@{/stanza/resultsStanzaAdmin(id=${stanza.id})}"></a> <a
 								th:href="@{/stanza/cancella(id=${stanza.id})}"><span><input
 										type="submit" name="submit" value="cancella" /></span></a> <a
 								th:href="@{/stanza/modificaStanza(id=${stanza.id})}"><span><input
