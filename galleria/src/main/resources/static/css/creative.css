@@ -156,6 +156,7 @@ header {
   -o-background-size: cover;
   background-position: center;
   background-image: url('../sf.jpg');
+  background-image: url('../galleria.jpg');
   text-align: center;
   color: white;
 }
