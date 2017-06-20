@@ -40,8 +40,10 @@ public class AdminController {
 			model.addAttribute(admin);
 			try{
 				Ruolo ruolo = new Ruolo(admin.getUsername());
+				admin.setEnabled(true);
 				adminService.add(admin); 
 				ruoloService.add(ruolo);
+				
 			}catch(Exception e){
 				return "registraAdmin";
 			}
